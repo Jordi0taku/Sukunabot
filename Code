@@ -57,7 +57,7 @@ async def chiste(ctx):
     await ctx.send(random.choice(chistes))
 
 @bot.command()
-async def roll(ctx, dice: str):
+async def roll(int):
    number = random.randint(1,6)
    await ctx.send(number)
    
@@ -89,8 +89,8 @@ async def duck(ctx):
 @bot.command()
 async def inventario(ctx):
     inventary = random.choice(os.listdir("weapons"))
-    calidad = ["Comun", "Poco comun", "Rara", "Epica", "Legendaria"]
-    with open(f'weapons{inventary}', 'rb') as f:
+    calidad = ["⬜Comun⬜", "🟩Poco comun🟩", "🟦Rara🟦", "🟪Epica🟪", "🟨Legendaria🟨"]
+    with open(f'weapons/{inventary}', 'rb') as f:
         # ¡Vamos a almacenar el archivo de la biblioteca Discord convertido en esta variable!
         weapons = discord.File(f)
     # A continuación, podemos enviar este archivo como parámetro.
